@@ -88,7 +88,7 @@
 
         <div class="col-md-12">
             <hr>
-            <h5>Lesson Modules <a class="btn btn-sm btn-warning float-right" href="public/modules/{{$module->id}}/edit">Edit Module</a> <a class="btn btn-sm btn-primary float-right" href="/public/modules/create?course_id={{$course->id}}">Add Module</a></h5>
+            <h5>Lesson Modules <a class="btn btn-sm btn-warning float-right" href="/public/modules/{{$module->id}}/edit">Edit Module</a> <a class="btn btn-sm btn-primary float-right" href="/public/modules/create?course_id={{$course->id}}">Add Module</a></h5>
             <div class="owl-carousel">
 
                 <div class="lesson-scroller-item active">
