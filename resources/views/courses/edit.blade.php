@@ -34,7 +34,7 @@
                                     Description:
                                     <textarea class="form-control" rows="5" name="course_description">{{$course->course_description}}</textarea>
                                     <br>
-                                    <img src="/images/{{ $course->course_image }}" height="100"/>
+                                    <img src="images/{{ $course->course_image }}" height="100"/>
                                     <input type="file" id="course_image" name = "course_image">
                                     <br>
                                     <br>
