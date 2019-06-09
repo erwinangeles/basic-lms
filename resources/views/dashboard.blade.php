@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .jumbotron{
-        background-image: url({{url('public/images/new-bg.jpg')}} );
+        background-image: url({{url('/images/new-bg.jpg')}} );
         background-size: cover;
         height: 100%;}
 </style>
