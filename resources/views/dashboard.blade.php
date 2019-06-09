@@ -38,9 +38,9 @@
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
 
-                            <a href="public/course/{{$course->course_slug}}"><img src="public/images/{{ $course->course_image }}" width="100%" height="225"/></a>
+                            <a href="course/{{$course->course_slug}}"><img src="images/{{ $course->course_image }}" width="100%" height="225"/></a>
                             <div class="card-body">
-                                <h4><a href="public/course/{{$course->course_slug}}">{{$course->course_name}}</a></h4>
+                                <h4><a href="course/{{$course->course_slug}}">{{$course->course_name}}</a></h4>
                                 <p class="card-text">{{$course->course_description}}</p>
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="btn-group">
