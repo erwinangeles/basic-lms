@@ -92,26 +92,26 @@
             <div class="owl-carousel">
 
                 <div class="lesson-scroller-item active">
-                    <a href="/course/{{$course->course_slug}}">
+                    <a href="/public/course/{{$course->course_slug}}">
                         <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                            <img alt="" class="media-object img-responsive" src="public/images/getting-started.jpg">
+                            <img alt="" class="media-object img-responsive" src="/images/getting-started.jpg">
                             <div class="lesson-title">
                                 <span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span>
                             </div></div></a>
                 </div>
                 @foreach ($modules as $module)
                     <div class="lesson-scroller-item active">
-                        <a href="/course/{{$course->course_slug}}/{{$module->module_slug}}">
+                        <a href="/public/course/{{$course->course_slug}}/{{$module->module_slug}}">
                             <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                                <img alt="" class="media-object img-responsive" src="public/images/{{$module->module_image}}">
+                                <img alt="" class="media-object img-responsive" src="images/{{$module->module_image}}">
                                 <div class="lesson-title">
                                     <span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span>
                                 </div></div></a>
                     </div>
                 @endforeach
                 <div class="lesson-scroller-item active">
-                    <a href="/{{$course->course_slug}}/summary">
-                        <img alt="" class="media-object img-responsive" src="public/images/summary.png">
+                    <a href="/public/{{$course->course_slug}}/summary">
+                        <img alt="" class="media-object img-responsive" src="images/summary.png">
                             <div class="lesson-title">
                                 <span class="lesson-module-number"></span> <span class="text-uppercase">Summary</span>
                             </div></div></a>
