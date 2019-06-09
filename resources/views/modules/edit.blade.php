@@ -62,7 +62,7 @@
 
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="/" class="navbar-brand d-flex align-items-center">
+            <a href="/public" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
                 <a class="btn btn-sm btn-primary" href="/public">Dashboard</a>
             </a>
