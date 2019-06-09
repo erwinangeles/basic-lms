@@ -69,7 +69,7 @@
                     <div class="card-body">
                         <h2>Welcome to LMS-EANG!</h2>
                         <p>With this online learning management system, you can create courses and lessons with your own content! Each course will have it's own modules that you create! View all the available modules below. You can also view the course description on the right hand side.</p>
-                        <p>To create more modules, click the "Add Module" button! Have fun playing with this tool!</p>
+                        <p>To create more modules, click the "Add Module" button! Have fun creating courses with this tool!</p>
                         <p>Thank you so much for checking out this project! - Erwin</p>
                     </div>
                 </div>
