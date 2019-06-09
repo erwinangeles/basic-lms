@@ -70,7 +70,7 @@
                         <div class="text-wrap" style="padding: 10px;">
 
                             <ul class="list-unstyled list-centered" style="text-align: center; list-style: inside;">
-                                <h3 class="lesson-summary-title">Summary&nbsp;<span class="fill-me-up"><img src="images/bookmark.svg" width="43" height="60" /></span></h3>
+                                <h3 class="lesson-summary-title">Summary&nbsp;<span class="fill-me-up"><img src="/public/images/bookmark.svg" width="43" height="60" /></span></h3>
                                 <hr />
                                 <li class="margin-bottom"><b>Getting Started</b> <a href="/public/course/{{ $course->course_slug }}/">(Revisit)</a></li>
                             @foreach($modules as $module)
@@ -105,7 +105,7 @@
                 <div class="lesson-scroller-item active">
                     <a href="/public/course/{{$course->course_slug}}">
                         <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                            <img alt="" class="media-object img-responsive" src="images/getting-started.jpg">
+                            <img alt="" class="media-object img-responsive" src="/public/images/getting-started.jpg">
                             <div class="lesson-title">
                                 <span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span>
                             </div></div></a>
@@ -114,7 +114,7 @@
                     <div class="lesson-scroller-item active">
                         <a href="/public/course/{{$course->course_slug}}/{{$module->module_slug}}">
                             <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                                <img alt="" class="media-object img-responsive" src="images/{{$module->module_image}}">
+                                <img alt="" class="media-object img-responsive" src="/public/images/{{$module->module_image}}">
                                 <div class="lesson-title">
                                     <span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span>
                                 </div></div></a>
@@ -123,7 +123,7 @@
                 <div class="lesson-scroller-item active">
                     <a href="/public/{{$course->course_slug}}/summary">
                         <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                            <img alt="" class="media-object img-responsive" src="images/summary.png">
+                            <img alt="" class="media-object img-responsive" src="/public/images/summary.png">
                             <div class="lesson-title">
                                 <span class="lesson-module-number"></span> <span class="text-uppercase">Summary</span>
                             </div></div></a>
