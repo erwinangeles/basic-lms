@@ -64,7 +64,7 @@
         <div class="container d-flex justify-content-between">
             <a href="/" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
-                <a class="btn btn-sm btn-primary" href="/">Dashboard</a>
+                <a class="btn btn-sm btn-primary" href="/public">Dashboard</a>
             </a>
         </div>
     </div>
@@ -111,12 +111,12 @@
                             <textarea id="summernote" rows="15" name="module_content">{!! $module->module_content !!}</textarea>
                             Module Image:
                             <br>
-                            <img src="/images/{{ $module->module_image }}" height="100"/>
+                            <img src="public/images/{{ $module->module_image }}" height="100"/>
                             <input type="file" id="module_image" name = "module_image">
                             <br>
                             <br>
                             <input type="submit" value="Save" class="btn btn-primary">
-                            <button type="button" class="btn btn-light"><a href="/">Return to Dashboard</a></button>
+                            <button type="button" class="btn btn-light"><a href="/public">Return to Dashboard</a></button>
                         </div>
                     </form>
                     <script>
