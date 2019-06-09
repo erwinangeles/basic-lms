@@ -149,7 +149,7 @@ class CourseController extends Controller
 //loads a specific course's lessons by direct url - this is the lesson summary
         $course = Course::where('course_slug', '=', $course)->firstOrFail();
         $modules = Module::where("course_id", "=", $course->id)->get();
-        return view('courses.summary', compact('summary'))->with('modules', $modules)->with('course', $course);
+        return view('courses.summary', compact('course'))->with('modules', $modules)->with('course', $course);
     }
 
 }
