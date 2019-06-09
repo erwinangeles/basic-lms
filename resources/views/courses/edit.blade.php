@@ -39,7 +39,7 @@
                                     <br>
                                     <br>
                                     <input type="submit" value="Save" class="btn btn-primary">
-                                    <button type="button" class="btn btn-light"><a href="/">Return to Dashboard</a></button>
+                                    <button type="button" class="btn btn-light"><a href="/public">Return to Dashboard</a></button>
                                 </div>
                             </form>
 
