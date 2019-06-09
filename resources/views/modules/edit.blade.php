@@ -111,7 +111,7 @@
                             <textarea id="summernote" rows="15" name="module_content">{!! $module->module_content !!}</textarea>
                             Module Image:
                             <br>
-                            <img src="public/images/{{ $module->module_image }}" height="100"/>
+                            <img src="/public/images/{{ $module->module_image }}" height="100"/>
                             <input type="file" id="module_image" name = "module_image">
                             <br>
                             <br>
