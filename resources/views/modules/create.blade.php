@@ -66,7 +66,7 @@
         <div class="container d-flex justify-content-between">
             <a href="/" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
-                <a class="btn btn-sm btn-primary" href="/dashboard">Dashboard</a>
+                <a class="btn btn-sm btn-primary" href="/public/dashboard">Dashboard</a>
             </a>
         </div>
     </div>
