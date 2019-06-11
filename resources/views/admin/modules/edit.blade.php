@@ -62,9 +62,9 @@
 
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="/public" class="navbar-brand d-flex align-items-center">
+            <a href="{{url('dashboard')}}" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
-                <a class="btn btn-sm btn-primary" href="/public">Dashboard</a>
+                <a class="btn btn-sm btn-primary" href="{{url('dashboard')}}">Dashboard</a>
             </a>
         </div>
     </div>
@@ -78,7 +78,7 @@
 <br>
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12">
             @if(session()->has('message'))
                 <div class="alert alert-success">
                     {{ session()->get('message') }}
@@ -108,15 +108,15 @@
                             <input type="text" name="module_slug" value="{{ $module->module_slug }}" class="form-control"/>
                             <input type="hidden" name="course_id" value="{{ $module->course_id }}" class="form-control"/>
                             Content:
-                            <textarea id="summernote" rows="15" name="module_content">{!! $module->module_content !!}</textarea>
+                            <textarea id="summernote"  name="module_content">{!! $module->module_content !!}</textarea>
                             Module Image:
                             <br>
-                            <img src="/public/images/{{ $module->module_image }}" height="100"/>
+                            <img src="{{url('/images')}}/{{ $module->module_image }}" height="100"/>
                             <input type="file" id="module_image" name = "module_image">
                             <br>
                             <br>
                             <input type="submit" value="Save" class="btn btn-primary">
-                            <button type="button" class="btn btn-light"><a href="/public">Return to Dashboard</a></button>
+                            <button type="button" class="btn btn-light"><a href="{{url('dashboard')}}">Return to Dashboard</a></button>
                         </div>
                     </form>
                     <script>

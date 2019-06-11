@@ -34,12 +34,12 @@
                                     Description:
                                     <textarea class="form-control" rows="5" name="course_description">{{$course->course_description}}</textarea>
                                     <br>
-                                    <img src="/public/images/{{ $course->course_image }}" height="100"/>
+                                    <img src="{{url('/images')}}/{{ $course->course_image }}" height="100"/>
                                     <input type="file" id="course_image" name = "course_image">
                                     <br>
                                     <br>
                                     <input type="submit" value="Save" class="btn btn-primary">
-                                    <button type="button" class="btn btn-light"><a href="/public">Return to Dashboard</a></button>
+                                    <button type="button" class="btn btn-light"><a href="{{url('dashboard')}}">Return to Dashboard</a></button>
                                 </div>
                             </form>
 
