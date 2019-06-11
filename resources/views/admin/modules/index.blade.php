@@ -21,7 +21,7 @@
             }
         </style>
         <br/>
-        <a href="{{route('admin.modules.create')}}?course_id={{ app('request')->input('course_id') }}" class="btn float-right btn-primary">Create Module</a>
+        <a href="{{route('admin.modules.create')}}?course_id={{ app('request')->input('course_id') }}" target="_blank" class="btn float-right btn-primary">Create Module</a>
         <br/>
         <br>
         <br>
@@ -37,7 +37,7 @@
                 <tr>
                     <td>{{$module->course_id}}</td>
                     <td>{{$module->module_name}}</td>
-                    <td> <a href="{{ route('admin.modules.edit', $module->id) }}" class="btn btn-xs btn-info">Edit</a>
+                    <td> <a href="{{ route('admin.modules.edit', $module->id) }}" target="_blank" class="btn btn-xs btn-info">Edit</a>
                         <form method="POST" action="{{route('admin.modules.destroy', $module->id)}}">
                             @csrf
                             {{method_field('DELETE')}}

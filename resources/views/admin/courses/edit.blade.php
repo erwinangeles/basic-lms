@@ -28,7 +28,7 @@
                 <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-primary">
-                <button type="button" class="btn btn-light"><a href="{{route('admin.courses.index')}}">Return to Courses</a></button>
+                <button type="button" class="btn btn-light"><a href="{{url('/admin/courses')}}" target="_blank">Return to Modules</a></button>
             </div>
         </form>
     </div>

@@ -20,7 +20,7 @@
                 <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-primary">
-                <button type="button" class="btn btn-light"><a href="{{url('dashboard')}}">Return to Dashboard</a></button>
+                <button type="button" class="btn btn-light"><a href="{{url('admin/modules?course_id='. $module->course_id)}}" target="_blank">Return to Modules</a></button>
             </div>
         </form>
         <script>
