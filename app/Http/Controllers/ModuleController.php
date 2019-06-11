@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Module;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 Use Image;
 
 class ModuleController extends Controller
@@ -13,9 +15,14 @@ class ModuleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         //
+        if ($request->input('course_id')){
+            $modules = Module::where("course_id", $request->input('course_id'))->get();
+        }else
+            $modules = Module::all();
+        return view('admin.modules.index')->with('modules',$modules);
     }
 
     /**
@@ -26,7 +33,7 @@ class ModuleController extends Controller
     public function create()
     {
         //
-        return view('modules.create');
+        return view('admin.modules.create');
     }
 
     /**
@@ -57,8 +64,8 @@ class ModuleController extends Controller
             $module->module_image = 'noimage.jpg';
         }
         $module->save();
+        return redirect('admin/modules?course_id='. $module->course_id)->with('message', 'Module successfully created!');
 
-        return redirect('dashboard')->with('message', 'Module successfully created!');
     }
 
     /**
@@ -81,7 +88,7 @@ class ModuleController extends Controller
     public function edit(Module $module)
     {
         //
-        return view('modules.edit', compact('module'));
+        return view('admin.modules.edit', compact('module'));
     }
 
     /**
@@ -109,7 +116,7 @@ class ModuleController extends Controller
             $module->module_image = $filename;
         }
         $module->save();
-        return redirect()->back()->with('message', 'Module successfully updated!');
+        return redirect('admin/modules?course_id='. $module->course_id)->with('message', 'Module successfully created!');
     }
 
     /**
@@ -122,6 +129,6 @@ class ModuleController extends Controller
     {
         //
         $module->delete();
-        return redirect('dashboard')->with('danger-message', 'Module successfully deleted!');
+        return redirect('admin/modules?course_id='. $module->course_id)->with('danger-message', 'Module successfully deleted!');
     }
 }

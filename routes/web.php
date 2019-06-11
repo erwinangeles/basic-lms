@@ -15,15 +15,21 @@ Route::get('/', function () {
     return redirect('dashboard');
 });
 
-Route::get('/view', function () {
-    return view('courses.index');
+
+Route::get('/admin', function () {
+    return view('admin.index');
 });
 Route::get('course/{course}', 'CourseController@course');
 Route::get('course/{course}/{module}', 'CourseController@module');
 Route::get('/{course}/summary', 'CourseController@summary');
-Route::resource('courses', 'CourseController');
-Route::resource('modules', 'ModuleController');
-Route::get('/dashboard', 'CourseController@index')->name('index');
+Route::get('/dashboard', 'CourseController@homepage')->name('homepage');
+
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::resource('courses', 'CourseController');
+});
+Route::prefix('admin')->name('admin.')->group(function (){
+    Route::resource('modules', 'ModuleController');
+});
 
 
 

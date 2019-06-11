@@ -18,8 +18,16 @@ class CourseController extends Controller
     {
         //
         $courses = Course::all();
+        return view('admin.courses.index')->with('courses',$courses);
+    }
+
+    public function homepage()
+    {
+        //
+        $courses = Course::all();
         return view('dashboard')->with('courses',$courses);
     }
+
 
     public function course($course)
     {
@@ -45,7 +53,7 @@ class CourseController extends Controller
     public function create()
     {
         //
-        return view('courses.create');
+        return view('admin.courses.create');
     }
 
     /**
@@ -74,7 +82,7 @@ class CourseController extends Controller
             $course->course_image = 'noimage.jpg';
         }
         $course->save();
-        return redirect('dashboard')->with('message', 'Course successfully updated!');;
+        return redirect()->route('admin.courses.index')->with('message', 'Course successfully updated!');
     }
 
 
@@ -99,7 +107,7 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         //
-        return view('courses.edit', compact('course'));
+        return view('admin.courses.edit', compact('course'));
     }
 
     /**
@@ -127,7 +135,7 @@ class CourseController extends Controller
             $course->course_image = $filename;
         }
         $course->save();
-        return redirect()->back()->with('message', 'Course successfully updated!');
+        return redirect()->route('admin.courses.index')->with('message', 'Course successfully updated!');
 
     }
 
@@ -141,7 +149,7 @@ class CourseController extends Controller
     {
         //
         $course->delete();
-        return redirect('dashboard')->with('danger-message', 'Course successfully deleted!');
+        return redirect()->route('admin.courses.index')->with('danger-message', 'Course successfully deleted!');
     }
 
     public function summary($course)

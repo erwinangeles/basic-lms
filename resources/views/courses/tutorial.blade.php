@@ -44,9 +44,10 @@
 
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="/public" class="navbar-brand d-flex align-items-center">
+            <a href="{{url('dashboard')}}" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
-                <a class="btn btn-sm btn-primary" href="/public">Dashboard</a>
+                <a class="btn btn-sm btn-warning float-right" href="{{url('/admin')}}">Admin Panel</a>
+                <a class="btn btn-sm btn-primary" href="{{url('dashboard')}}">Dashboard</a>
             </a>
         </div>
     </div>
@@ -93,13 +94,13 @@
 
         <div class="col-md-12">
             <hr>
-            <h5>Lesson Modules <a class="btn btn-sm btn-primary float-right" href="/public/modules/create?course_id={{$course->id}}">Add Module</a></h5>
+            <h5>Lesson Modules</h5>
             <div class="owl-carousel">
 
                 <div class="lesson-scroller-item active">
-                    <a href="/public/course/{{$course->course_slug}}">
+                    <a href="{{url('course/')}}/{{$course->course_slug}}">
                         <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                            <img alt="" class="media-object img-responsive" src="/public/images/getting-started.jpg">
+                            <img alt="" class="media-object img-responsive" src="{{url('images/getting-started.jpg')}}">
                             <div class="lesson-title">
                                 <span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span>
                             </div></div></a>
@@ -107,9 +108,9 @@
 
 @foreach ($modules as $module)
                     <div class="lesson-scroller-item active">
-                        <a href="/public/course/{{$course->course_slug}}/{{$module->module_slug}}">
+                        <a href="{{url('/course/')}}/{{$course->course_slug}}/{{$module->module_slug}}">
                             <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                                <img alt="" class="media-object img-responsive" src="/public/images/{{$module->module_image}}">
+                                <img alt="" class="media-object img-responsive" src="{{url('images')}}/{{$module->module_image}}">
                                 <div class="lesson-title">
                                     <span class="lesson-module-number">{{ $loop->iteration+1 }}</span> <span class="text-uppercase">{!! $module->module_name !!}</span>
                                 </div></div></a>
@@ -117,9 +118,9 @@
     @endforeach
 
                 <div class="lesson-scroller-item active">
-                    <a href="/public/{{$course->course_slug}}/summary">
+                    <a href="{{url('/')}}/{{$course->course_slug}}/summary">
                         <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                            <img alt="" class="media-object img-responsive" src="/public/images/summary.png">
+                            <img alt="" class="media-object img-responsive" src="{{url('/images/summary.png')}}">
                             <div class="lesson-title">
                                 <span class="lesson-module-number"></span> <span class="text-uppercase">Summary</span>
                             </div></div></a>
