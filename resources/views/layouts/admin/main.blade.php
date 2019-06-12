@@ -10,6 +10,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/dashboard/">
 
     <title>LMS Admin</title>
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -35,6 +36,12 @@
     <!-- include summernote css/js -->
     <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
     <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <style>
+        .feather-16{
+            width: 16px;
+            height: 16px;
+        }
+    </style>
 </head>
 
 <body>
@@ -55,8 +62,8 @@
                 <li class="dropdown-submenu">
                     <a href="{{url('/admin')}}" target="_blank" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Admin Menu</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{{route('admin.courses.index')}}">Courses</a></li>
-                        <li><a href="{{route('admin.modules.index')}}">Modules</a></li>
+                        <li><a href="{{route('admin.courses.index')}}">Manage Courses</a></li>
+                        <!--<li><a href="{{route('admin.modules.index')}}">Modules</a></li> -->
                     </ul>
                 <li><a href="{{url('/dashboard')}}" target="_blank">Go Back to Dashboard</a></li>
             </ul>
@@ -68,9 +75,9 @@
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-                <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{url('/admin')}}">Admin Home</a></li>
-                <li class="{{ (request()->is('admin/courses*')) ? 'active' : '' }}"><a href="{{url('/admin/courses')}}">Courses</a></li>
-                <li class="{{ (request()->is('admin/modules*')) ? 'active' : '' }}"><a href="{{url('/admin/modules')}}">Modules</a></li>
+                <li class="{{ (request()->is('admin')) ? 'active' : '' }}"><a href="{{url('/admin')}}"><i class="feather-16" data-feather="home"></i> Dashboard</a></li>
+                <li class="{{ (request()->is('admin/courses*')) ? 'active' : '' }}"><a href="{{url('/admin/courses')}}"><i class="feather-16" data-feather="book"></i> Courses</a></li>
+                <!--<li class="{{ (request()->is('admin/modules*')) ? 'active' : '' }}"><a href="{{url('/admin/modules')}}"><i class="feather-16" data-feather="file-text"></i> Modules</a></li> -->
             </ul>
         </div>
         @yield('content')

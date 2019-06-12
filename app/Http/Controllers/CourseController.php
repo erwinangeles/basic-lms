@@ -75,7 +75,7 @@ class CourseController extends Controller
             $filename    = $image->getClientOriginalName();
 
             $image_resize = Image::make($image->getRealPath());
-            $image_resize->save('images/'. $filename);
+            $image_resize->save('images/courses/'. $filename);
             $course->course_image = $filename;
         }
         else {
@@ -131,7 +131,7 @@ class CourseController extends Controller
             $filename    = $image->getClientOriginalName();
 
             $image_resize = Image::make($image->getRealPath());
-            $image_resize->save('images/' . $filename);
+            $image_resize->save('images/courses/' . $filename);
             $course->course_image = $filename;
         }
         $course->save();

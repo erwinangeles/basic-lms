@@ -49,6 +49,8 @@ class ModuleController extends Controller
         $module->module_name = $request->module_name;
         $module->course_id = $request->course_id;
         $module->module_slug = $request->module_slug;
+        $module->module_type = $request->module_type;
+        $module->video_url = $request->video_url;
         $module->module_content = $request->module_content;
         if($request->hasFile('module_image')) {
 
@@ -57,7 +59,7 @@ class ModuleController extends Controller
 
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(240, 140);
-            $image_resize->save('images/' .$filename);
+            $image_resize->save('images/modules/' .$filename);
             $module->module_image = $filename;
         }
         else {
@@ -105,6 +107,8 @@ class ModuleController extends Controller
         $module->module_name = $request->module_name;
         $module->module_slug = $request->module_slug;
         $module->module_content = $request->module_content;
+        $module->module_type = $request->module_type;
+        $module->video_url = $request->video_url;
         if($request->hasFile('module_image')) {
 
             $image       = $request->file('module_image');
@@ -112,7 +116,7 @@ class ModuleController extends Controller
 
             $image_resize = Image::make($image->getRealPath());
             $image_resize->fit(240, 140);
-            $image_resize->save('images/' .$filename);
+            $image_resize->save('images/modules/' .$filename);
             $module->module_image = $filename;
         }
         $module->save();

@@ -18,6 +18,8 @@ class CreateModulesTable extends Migration
             $table->integer('course_id');
             $table->string('module_name')->nullable();
             $table->string('module_slug')->unique();
+            $table->string('module_type');
+            $table->string('video_url')->nullable();
             $table->longText('module_content')->nullable();
             $table->string('module_image');
             $table->timestamps();

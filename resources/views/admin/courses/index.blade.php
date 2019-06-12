@@ -39,7 +39,7 @@
                     <td>{{ $course->id }}</td>
                     <td>{{$course->course_name}}</td>
                     <td>{{$course->course_slug}}</td>
-                    <td> <a href="{{ route('admin.courses.edit', $course->id) }}" target="_blank" class="btn btn-xs btn-info">Edit</a>
+                    <td> <a href="{{ route('admin.courses.edit', $course->id) }}" target="_blank" class="btn btn-xs btn-primary">Edit</a>
                         <a href="{{url('admin/modules?course_id=')}}{{$course->id}}" target="_blank" class="btn btn-xs btn-warning">Edit Modules</a>
                         <form method="POST" action="{{route('admin.courses.destroy', $course->id)}}">
                             @csrf
@@ -54,7 +54,7 @@
 
             @empty
                 <tr>
-                    <td colspan="2">No records found</td>
+                    <td colspan="2">No courses found</td>
                 </tr>
             @endforelse
         </table>

@@ -36,6 +36,7 @@
             }
         }
     </style>
+
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.3/examples/album/album.css" rel="stylesheet">
 </head>
@@ -58,65 +59,104 @@
         background-color: #2F3955;
     }
 </style>
+
+<style>
+    .video-responsive{
+        overflow:hidden;
+        padding-bottom:56.25%;
+        position:relative;
+        height:0;
+    }
+    .video-responsive iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+    }
+</style>
 <br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card">
                 <div class="card-header">{{$course->course_name}} - Online Course</div>
-
-                <div class="card-body">
-
-                    <div class="card-body">
-                      {!! $module->module_content !!}
+                @if(!is_null($module->video_url) and $module->module_type =='video')
+                    <div class="video-responsive">
+                        <style>
+                            .video-responsive{
+                                overflow:hidden;
+                                padding-bottom:56.25%;
+                                position:relative;
+                                height:0;
+                            }
+                            .video-responsive iframe{
+                                left:0;
+                                top:0;
+                                height:100%;
+                                width:100%;
+                                position:absolute;
+                            }
+                        </style>
+                        <iframe sandbox="allow-same-origin allow-scripts allow-forms"  width="410" height="400" src="{{$module->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
                     </div>
-                </div>
+                @else
+                    <div class="card-body">
+
+                        <div class="card-body">
+                            {!! $module->module_content !!}
+                        </div>
+                    </div>
+                @endif
             </div>
             <br>
         </div>
         <div class="col-md-3">
             <div class="card">
                 <div class="card-header">Description</div>
-
-                <div class="card-body">
-
                     <div class="card-body">
                        {{$course->course_description}}
                     </div>
-                </div>
             </div>
         </div>
-
-        <div class="col-md-12">
-            <hr>
-            <h5>Lesson Modules</h5>
+        <hr>
+            <div class="col-md-12">
+                <hr>
+                <!--  Demos -->
+                <div class="row">
+                    <div class="container-fluid lesson-footer">
+                        <style>
+                            .lesson-footer{
+                                padding-top: 1rem;
+                                padding-right: 1.5rem;
+                                padding-left: 1.5rem;
+                            }
+                        </style>
+                        <h5>COURSE MODULES</h5>
             <div class="owl-carousel">
-
-                <div class="lesson-scroller-item active">
-                    <a href="{{url('/course')}}/{{$course->course_slug}}">
-                        <div class="image-container" data-watch-height="" style="min-height: 134px;">
+                <a href="{{url('/course')}}/{{$course->course_slug}}"><div class="lesson-scroller-item {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}">
+                        <div class="image-container">
                             <img alt="" class="media-object img-responsive" src="{{url('/images/getting-started.jpg')}}">
                             <div class="lesson-title">
                                 <span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span>
-                            </div></div></a>
-                </div>
+                            </div></div>
+                    </div></a>
                 @foreach ($modules as $module)
-                    <div class="lesson-scroller-item active">
-                        <a href="{{url('/course')}}/{{$course->course_slug}}/{{$module->module_slug}}">
-                            <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                                <img alt="" class="media-object img-responsive" src="{{url('/images')}}/{{$module->module_image}}">
+                    <a href="{{url('/course')}}/{{$course->course_slug}}/{{$module->module_slug}}"><div class="lesson-scroller-item {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}">
+                            <div class="image-container">
+                                <img alt="" class="media-object img-responsive" src="{{url('/images/modules')}}/{{$module->module_image}}">
                                 <div class="lesson-title">
                                     <span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span>
-                                </div></div></a>
-                    </div>
+                                </div></div>
+                    </div></a>
                 @endforeach
-                <div class="lesson-scroller-item active">
-                    <a href="{{url('/')}}/{{$course->course_slug}}/summary">
-                        <img alt="" class="media-object img-responsive" src="{{url('/images/summary.png')}}">
+                <a href="{{url('/')}}/{{$course->course_slug}}/summary"><div class="lesson-scroller-item {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}">
+                        <div class="image-container">
+                            <img alt="" class="media-object img-responsive" src="{{url('/images/summary.png')}}">
                             <div class="lesson-title">
                                 <span class="lesson-module-number"></span> <span class="text-uppercase">Summary</span>
-                            </div></div></a>
-                </div>
+                            </div></div>
+                </div></a>
 
             </div>
         </div>
@@ -131,12 +171,14 @@
         <p>New to Bootstrap? <a href="https://getbootstrap.com/">Visit the homepage</a> or read our <a href="/docs/4.3/getting-started/introduction/">getting started guide</a>.</p>
     </div>
 </footer>
+
 <script>
     $(document).ready(function() {
         var owl = $('.owl-carousel');
         owl.owlCarousel({
             margin: 10,
-            nav: false,
+            dots: true,
+            nav: true,
             loop: false,
             responsive: {
                 0: {
@@ -150,6 +192,7 @@
                 }
             }
         })
+
     })
 </script>
 

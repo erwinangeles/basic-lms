@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <title>Learning Management System - Laravel </title>
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 

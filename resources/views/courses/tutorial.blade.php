@@ -110,7 +110,7 @@
                     <div class="lesson-scroller-item active">
                         <a href="{{url('/course/')}}/{{$course->course_slug}}/{{$module->module_slug}}">
                             <div class="image-container" data-watch-height="" style="min-height: 134px;">
-                                <img alt="" class="media-object img-responsive" src="{{url('images')}}/{{$module->module_image}}">
+                                <img alt="" class="media-object img-responsive" src="{{url('images/modules')}}/{{$module->module_image}}">
                                 <div class="lesson-title">
                                     <span class="lesson-module-number">{{ $loop->iteration+1 }}</span> <span class="text-uppercase">{!! $module->module_name !!}</span>
                                 </div></div></a>

@@ -11,16 +11,38 @@
                 Slug:
                 <input type="text" name="module_slug" value="{{ $module->module_slug }}" class="form-control"/>
                 <input type="hidden" name="course_id" value="{{ $module->course_id }}" class="form-control"/>
-                Content:
-                <textarea id="summernote"  name="module_content">{!! $module->module_content !!}</textarea>
+                <div id="text" class="group">
+                    Content:
+                    <textarea id="summernote" rows="15" name="module_content">{{$module->module_content}}</textarea>
+                </div>
+                Module Type:
+                <select class="form-control" id="module_type" name="module_type">
+                    <option value="text" <?php if ($module->module_type == 'text') echo ' selected="selected"'; ?>>Text</option>
+                    <option value="video" <?php if ($module->module_type == 'video') echo ' selected="selected"'; ?>>Video</option>
+                </select>
+                <div id="video" class="group">
+                    Video Embed URL:
+                    <input type="text" name="video_url" value="{{$module->video_url}}" class="form-control"/>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        $('.group').hide();
+                        $('#text').hide();
+                        $('#{{$module->module_type}}').show();
+                        $('#module_type').change(function () {
+                            $('.group').hide();
+                            $('#'+$(this).val()).show();
+                        })
+                    });
+                </script>
                 Module Image:
                 <br>
-                <img src="{{url('/images')}}/{{ $module->module_image }}" height="100"/>
+                <img src="{{url('/images/modules')}}/{{ $module->module_image }}" height="100"/>
                 <input type="file" id="module_image" name = "module_image">
                 <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-primary">
-                <button type="button" class="btn btn-light"><a href="{{url('admin/modules?course_id='. $module->course_id)}}" target="_blank">Return to Modules</a></button>
+                <a href="{{url('admin/modules?course_id='. $module->course_id)}}"><button type="button" class="btn btn-light">Return to Modules</button></a>
             </div>
         </form>
         <script>
