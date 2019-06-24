@@ -12,7 +12,6 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <!-- Owl Stylesheets -->
     <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://owlcarousel2.github.io/OwlCarousel2/assets/owlcarousel/assets/owl.theme.default.min.css">
@@ -51,7 +50,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/4.3/examples/album/album.css" rel="stylesheet">
+    <link href="/css/lms-eang.css" rel="stylesheet">
 </head>
 <body>
 <header>
