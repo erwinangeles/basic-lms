@@ -9,6 +9,8 @@ To create more modules, click the "Add Module" button! Have fun creating courses
 
 ## Front-End
 <img src="https://github.com/erwinangeles/lms-eang/raw/master/public/images/screenshot.JPG"/>
+<img src="https://github.com/erwinangeles/lms-eang/raw/master/public/images/frontend-video-module.JPG"/>
 
 ## Back-End
 <img src="https://github.com/erwinangeles/lms-eang/raw/master/public/images/admin.JPG"/>
+<img src="https://github.com/erwinangeles/lms-eang/raw/master/public/images/back-end.JPG"/>
