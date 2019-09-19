@@ -30,7 +30,9 @@
                             <a href="course/{{$course->course_slug}}" target="_blank"><img src="images/courses/{{ $course->course_image }}" width="100%" height="225"/></a>
                             <div class="card-body">
                                 <h4><a href="course/{{$course->course_slug}}" target="_blank">{{$course->course_name}}</a></h4>
-                                <p class="card-text">{{$course->course_description}}</p>
+                                <p class="card-text">{{$course->course_description}}
+                                </p>
+                              <a href="course/{{$course->course_slug}}" target="_blank">  <button class="btn btn-info col-md-12">View Course</button></a>
                             </div>
                         </div>
                     </div>
