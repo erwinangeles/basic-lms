@@ -108,4 +108,3 @@
 @yield('additional_scripts')
 
 </html>
-

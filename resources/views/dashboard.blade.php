@@ -27,12 +27,12 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <a href="course/{{$course->course_slug}}" target="_blank"><img src="@if($course->course_image) {{$course->course_image}} @else {{asset('images/noimage.jpg')}} @endif" width="100%" height="225"/></a>
+                            <a href="course/{{$course->course_slug}}"><img src="@if($course->course_image) {{$course->course_image}} @else {{asset('images/noimage.jpg')}} @endif" width="100%" height="225"/></a>
                             <div class="card-body">
-                                <h4><a href="course/{{$course->course_slug}}" target="_blank">{{$course->course_name}}</a></h4>
+                                <h4><a href="course/{{$course->course_slug}}">{{$course->course_name}}</a></h4>
                                 <p class="card-text">{{$course->course_description}}
                                 </p>
-                              <a href="course/{{$course->course_slug}}" target="_blank">  <button class="btn btn-info col-md-12">View Course</button></a>
+                              <a href="course/{{$course->course_slug}}">  <button class="btn btn-info col-md-12">View Course</button></a>
                             </div>
                         </div>
                     </div>
