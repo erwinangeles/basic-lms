@@ -50,7 +50,7 @@
         }
     </style>
     <!-- Custom styles for this template -->
-    <link href="/css/lms-eang.css" rel="stylesheet">
+    <link href="{{asset('css/lms-eang.css')}}" rel="stylesheet">
 </head>
 <body>
 <header>
