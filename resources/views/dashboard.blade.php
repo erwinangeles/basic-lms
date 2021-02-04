@@ -15,7 +15,7 @@
                 <p>A learning management system is a software application for the administration, documentation, tracking, reporting, and delivery of educational courses, training programs, or learning and development programs.</p>
                 <p>You can view, edit, or create a course below.</p>
                 <p>
-                    <a href="{{route('admin.courses.create')}}" target="_blank" class="btn btn-primary my-2">Create Course</a>
+                    <a href="{{route('admin.courses.create')}}" class="btn btn-primary my-2">Create Course</a>
                 </p>
                 </font>
             </div>

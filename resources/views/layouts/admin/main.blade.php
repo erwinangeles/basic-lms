@@ -60,12 +60,12 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown-submenu">
-                    <a href="{{url('/admin')}}" target="_blank" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Admin Menu</span><span class="caret"></span></a>
+                    <a href="{{route('admin')}}" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="nav-label">Admin Menu</span><span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('admin.courses.index')}}">Manage Courses</a></li>
                         <!--<li><a href="{{route('admin.modules.index')}}">Modules</a></li> -->
                     </ul>
-                <li><a href="{{url('/dashboard')}}" target="_blank">Go Back to Dashboard</a></li>
+                <li><a href="{{route('homepage')}}">Go Back to Dashboard</a></li>
             </ul>
         </div>
     </div>
