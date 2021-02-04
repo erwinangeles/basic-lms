@@ -2,7 +2,7 @@
 @section('content')
 <style>
     .jumbotron{
-        background-image: url({{url('/images/new-bg.jpg')}} );
+        background-image: url("{{asset('images/new-bg.jpg')}}");
         background-size: cover;
         height: 100%;}
 </style>
@@ -27,7 +27,7 @@
 
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <a href="course/{{$course->course_slug}}" target="_blank"><img src="images/courses/{{ $course->course_image }}" width="100%" height="225"/></a>
+                            <a href="course/{{$course->course_slug}}" target="_blank"><img src="@if($course->course_image) {{$course->course_image}} @else {{asset('images/noimage.jpg')}} @endif" width="100%" height="225"/></a>
                             <div class="card-body">
                                 <h4><a href="course/{{$course->course_slug}}" target="_blank">{{$course->course_name}}</a></h4>
                                 <p class="card-text">{{$course->course_description}}

@@ -7,6 +7,7 @@ use App\Module;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 Use Image;
+use Illuminate\Support\Facades\Storage;
 
 class ModuleController extends Controller
 {
@@ -54,16 +55,9 @@ class ModuleController extends Controller
         $module->module_content = $request->module_content;
         if($request->hasFile('module_image')) {
 
-            $image       = $request->file('module_image');
-            $filename    = $image->getClientOriginalName();
-
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->fit(240, 140);
-            $image_resize->save('images/modules/' .$filename);
+            $image       = $request->file('module_image')->store('modules');
+            $module->module_image = Storage::url($image);
             $module->module_image = $filename;
-        }
-        else {
-            $module->module_image = 'noimage.jpg';
         }
         $module->save();
         return redirect('admin/modules?course_id='. $module->course_id)->with('message', 'Module successfully created!');
@@ -110,14 +104,8 @@ class ModuleController extends Controller
         $module->module_type = $request->module_type;
         $module->video_url = $request->video_url;
         if($request->hasFile('module_image')) {
-
-            $image       = $request->file('module_image');
-            $filename    = $image->getClientOriginalName();
-
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->fit(240, 140);
-            $image_resize->save('images/modules/' .$filename);
-            $module->module_image = $filename;
+            $image = $request->file('module_image')->store('modules');
+            $module->module_image = Storage::url($image);
         }
         $module->save();
         return redirect('admin/modules?course_id='. $module->course_id)->with('message', 'Module successfully created!');

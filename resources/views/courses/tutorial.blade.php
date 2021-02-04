@@ -36,6 +36,9 @@
                 font-size: 3.5rem;
             }
         }
+        #content, #sidecontent{
+        min-height: 40vh;
+    }
     </style>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.3/examples/album/album.css" rel="stylesheet">
@@ -60,7 +63,7 @@
     }
 </style>
 <br>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-9">
             <div class="card">
@@ -68,7 +71,7 @@
 
                 <div class="card-body">
 
-                    <div class="card-body">
+                    <div class="card-body" id="content">
                         <h2>Welcome to LMS-EANG!</h2>
                         <p>With this online learning management system, you can create courses and lessons with your own content! Each course will have it's own modules that you create! View all the available modules below. You can also view the course description on the right hand side.</p>
                         <p>To create more modules, click the "Add Module" button! Have fun creating courses with this tool!</p>
@@ -84,7 +87,7 @@
 
                 <div class="card-body">
 
-                    <div class="card-body">
+                    <div class="card-body" id="sidecontent">
                         <p>Hi there!</p>
                         <p>This is the section for the course description. You will see the description for the course here. Click another module below to continue.</p>
 

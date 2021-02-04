@@ -35,6 +35,9 @@
                 font-size: 3.5rem;
             }
         }
+        #content, #sidecontent{
+        min-height: 50vh;
+    }
     </style>
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.3/examples/album/album.css" rel="stylesheet">
@@ -59,15 +62,15 @@
     }
 </style>
 <br>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">{{$course->course_name}} - Online Course</div>
 
                 <div class="card-body">
 
-                    <div class="card-body">
+                    <div class="card-body" id="content">
                         <div class="text-wrap" style="padding: 10px;">
 
                             <ul class="list-unstyled list-centered" style="text-align: center; list-style: inside;">
@@ -84,18 +87,6 @@
                 </div>
             </div>
             <br>
-        </div>
-        <div class="col-md-3">
-            <div class="card">
-                <div class="card-header">Description</div>
-
-                <div class="card-body">
-
-                    <div class="card-body">
-                        {{$course->course_description}}
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="col-md-12">

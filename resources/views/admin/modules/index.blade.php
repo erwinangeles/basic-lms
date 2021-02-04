@@ -21,7 +21,7 @@
             }
         </style>
         <br/>
-        <a href="{{route('admin.modules.create')}}?course_id={{ app('request')->input('course_id') }}" target="_blank" class="btn float-right btn-primary">Create Course Module</a>
+        <a href="{{route('admin.modules.create')}}?course_id={{ app('request')->input('course_id') }}" class="btn float-right btn-primary">Create Course Module</a>
         <br/>
         <br>
         <br>
@@ -35,7 +35,7 @@
 
                 <tr>
                     <td> @if($module->module_type =='video')<span class="label label-success">video</span>@else <span class="label label-danger">text</span>@endif {{$module->module_name}}</td>
-                    <td> <a href="{{ route('admin.modules.edit', $module->id) }}" target="_blank" class="btn btn-xs btn-primary">Edit</a>
+                    <td> <a href="{{ route('admin.modules.edit', $module->id) }}" class="btn btn-xs btn-primary">Edit</a>
                         <form method="POST" action="{{route('admin.modules.destroy', $module->id)}}">
                             @csrf
                             {{method_field('DELETE')}}
@@ -53,7 +53,7 @@
                 </tr>
             @endforelse
         </table>
-        <a href="{{route('admin.courses.index')}}" target="_blank"><button type="button" class="btn btn-light">Return to Courses</button></a>
+        <a href="{{route('admin.courses.index')}}"><button type="button" class="btn btn-light">Return to Courses</button></a>
 
     </div>
 @endsection

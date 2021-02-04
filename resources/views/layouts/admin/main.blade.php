@@ -55,7 +55,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{url('/admin')}}">LMS ADMIN</a>
+            <a class="navbar-brand" href="{{route('homepage')}}">LMS ADMIN</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -105,4 +105,6 @@
         feather.replace()
     }())
 </script>
+@yield('additional_scripts')
+
 </html>

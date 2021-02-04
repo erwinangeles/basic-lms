@@ -75,11 +75,14 @@
         width:100%;
         position:absolute;
     }
+    #content, #sidecontent{
+        min-height: 50vh;
+    }
 </style>
 <br>
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-9 col-lg-8">
             <div class="card">
                 <div class="card-header">{{$course->course_name}} - Online Course</div>
                 @if(!is_null($module->video_url) and $module->module_type =='video')
@@ -99,12 +102,12 @@
                                 position:absolute;
                             }
                         </style>
-                        <iframe sandbox="allow-same-origin allow-scripts allow-forms"  width="410" height="400" src="{{$module->video_url}}?rel=0" frameborder="0" allowfullscreen></iframe>
+                        <iframe sandbox="allow-same-origin allow-scripts allow-forms"  width="410" height="400" src="{{$module->video_url}}?rel=0"  frameborder="0" allowfullscreen></iframe>
                     </div>
                 @else
                     <div class="card-body">
 
-                        <div class="card-body">
+                        <div class="card-body" id="content">
                             {!! $module->module_content !!}
                         </div>
                     </div>
@@ -112,10 +115,10 @@
             </div>
             <br>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-3 col-lg-4">
             <div class="card">
                 <div class="card-header">Description</div>
-                <div class="card-body">
+                <div class="card-body" id="sidecontent">
                     {{$course->course_description}}
                 </div>
             </div>
@@ -156,7 +159,7 @@
 
 
                         <a href="{{url('/course')}}/{{$course->course_slug}}" class="not-active"><div class="lesson-scroller-item" id="0">
-                                <div class="image-container"><img src="{{url('/images/getting-started.jpg')}}" alt=""></div>
+                                <div class="image-container"><img src="{{asset('images/getting-started.jpg')}}" alt=""></div>
                             <div class="lesson-title">
                                 <strong><span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span></strong>
                            </div></div></a>

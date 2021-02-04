@@ -37,7 +37,7 @@
                 </script>
                 Module Image:
                 <br>
-                <img src="{{url('/images/modules')}}/{{ $module->module_image }}" height="100"/>
+                <img src="{{ $module->module_image }}" height="100"/>
                 <input type="file" id="module_image" name = "module_image">
                 <br>
                 <br>

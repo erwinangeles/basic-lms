@@ -8,9 +8,9 @@
             @csrf
             <div class="form-group">
                 Name:
-                <input type="text" name="module_name" placeholder="Name of Module" class="form-control"/>
+                <input type="text" id="module_name" name="module_name" placeholder="Name of Module" class="form-control"/>
                 Slug:
-                <input type="text" name="module_slug" placeholder="module-slug-test-1" class="form-control"/>
+                <input type="text" id="module_slug" name="module_slug" placeholder="module-slug-test-1" class="form-control"/>
                 <input type="hidden" name="course_id" value ="{{ app('request')->input('course_id') }}" class="form-control"/>
                 <div id="text" class="group">
                     Content:
@@ -50,4 +50,32 @@
             });
         </script>
     </div>
+@endsection
+
+
+@section('additional_scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+
+
+
+
+    $(document).ready(function() {
+
+        $('#module_name').on("input", function(e) {
+        var str = $("#module_name").val();
+        str = str.replace(/[^a-zA-Z0-9\s]/g,"");
+        str = str.toLowerCase();
+        str = str.replace(/\s/g,'-');
+        $("#module_slug").val(str);
+
+        });
+
+        $("#module_slug").on("click", function (e) {
+        $("#module_slug").attr("readonly", false);
+        });
+    });
+</script>
 @endsection

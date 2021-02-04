@@ -6,6 +6,7 @@ use App\Module;
 use Illuminate\Http\Request;
 Use Image;
 use Illuminate\Http\File;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -14,6 +15,10 @@ class CourseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function admin(){
+        return view('admin.index');
+     }
     public function index()
     {
         //
@@ -71,15 +76,8 @@ class CourseController extends Controller
         $course->course_description = $request->course_description;
         if($request->hasFile('course_image')) {
 
-            $image       = $request->file('course_image');
-            $filename    = $image->getClientOriginalName();
-
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->save('images/courses/'. $filename);
-            $course->course_image = $filename;
-        }
-        else {
-            $course->course_image = 'noimage.jpg';
+            $image  = $request->file('course_image')->store('courses');
+            $course->course_image = Storage::url($image);          
         }
         $course->save();
         return redirect()->route('admin.courses.index')->with('message', 'Course successfully updated!');
@@ -127,12 +125,8 @@ class CourseController extends Controller
         $course->course_description = $request->course_description;
         if($request->hasFile('course_image')) {
 
-            $image       = $request->file('course_image');
-            $filename    = $image->getClientOriginalName();
-
-            $image_resize = Image::make($image->getRealPath());
-            $image_resize->save('images/courses/' . $filename);
-            $course->course_image = $filename;
+            $image       = $request->file('course_image')->store('courses');
+            $course->course_image = Storage::url($image);
         }
         $course->save();
         return redirect()->route('admin.courses.index')->with('message', 'Course successfully updated!');
