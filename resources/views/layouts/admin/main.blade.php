@@ -7,25 +7,25 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="canonical" href="httpss://getbootstrap.com/docs/3.3/examples/dashboard/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/3.3/examples/dashboard/">
 
     <title>LMS Admin</title>
-    <script src="httpss://unpkg.com/feather-icons"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
 
     <!-- Bootstrap core CSS -->
-    <link href="httpss://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="httpss://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="httpss://getbootstrap.com/docs/3.3/examples/dashboard/dashboard.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/docs/3.3/examples/dashboard/dashboard.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="httpss://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="httpss://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
     <!-- include libraries(jQuery, bootstrap) -->
@@ -87,17 +87,17 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="httpss://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="httpss://getbootstrap.com/docs/3.3/examples/dashboard/assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="httpss://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/3.3/examples/dashboard/assets/js/vendor/jquery.min.js"><\/script>')</script>
+<script src="https://getbootstrap.com/docs/3.3/dist/js/bootstrap.min.js"></script>
 <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-<script src="httpss://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
+<script src="https://getbootstrap.com/docs/3.3/assets/js/vendor/holder.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="httpss://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
+<script src="https://getbootstrap.com/docs/3.3/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 
-<script>window.jQuery || document.write('<script src="httpss://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="httpss://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
-<script src="httpss://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
 <script>
     (function () {
         'use strict'
@@ -108,3 +108,4 @@
 @yield('additional_scripts')
 
 </html>
+
