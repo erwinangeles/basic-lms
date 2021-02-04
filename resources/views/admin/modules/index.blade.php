@@ -2,15 +2,6 @@
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
         <h1 class="page-header">Course Modules</h1>
-        @if(session()->has('message'))
-            <div class="alert alert-success">
-                {{ session()->get('message') }}
-            </div>
-        @elseif(session()->has('danger-message'))
-            <div class="alert alert-danger">
-                {{ session()->get('danger-message') }}
-            </div>
-        @endif
         <style>
             .float-right {
                 float: right !important;
@@ -20,6 +11,8 @@
             }
             }
         </style>
+                @include('components.validation')
+
         <br/>
         <a href="{{route('admin.modules.create')}}?course_id={{ app('request')->input('course_id') }}" class="btn float-right btn-primary">Create Course Module</a>
         <br/>

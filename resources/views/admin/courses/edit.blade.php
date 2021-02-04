@@ -12,6 +12,7 @@
             }
             }
         </style>
+        @include('components.validation')
         <form method="POST" action="{{route('admin.courses.update', $course->id)}}" enctype="multipart/form-data">
             {{method_field('PUT')}}
             @csrf

@@ -12,11 +12,11 @@
 */
 
 
+Route::get('/', 'CourseController@homepage')->name('homepage');
 
 Route::get('course/{course}', 'CourseController@course')->name('course');
 Route::get('course/{course}/{module}', 'CourseController@module')->name('module');
 Route::get('/{course}/summary', 'CourseController@summary')->name('summary');
-Route::get('/dashboard', 'CourseController@homepage')->name('homepage');
 Route::get('/admin', 'CourseController@admin')->name('admin');
 
 

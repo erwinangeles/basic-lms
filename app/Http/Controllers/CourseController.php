@@ -70,6 +70,12 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'course_name' => 'required|max:255',
+            'course_slug' => 'required|unique:courses|max:50',
+            'course_description' => 'max: 800',
+            'course_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
         $course = new Course;
         $course->course_name = $request->course_name;
         $course->course_slug = $request->course_slug;
@@ -118,13 +124,18 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         //
-
+        $request->validate([
+            'course_name' => 'max:255',
+            'course_slug' => 'max:50',
+            'course_description' => 'max: 800',
+            'course_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+        
         $course->update($request->all());
         $course->course_name = $request->course_name;
         $course->course_slug = $request->course_slug;
         $course->course_description = $request->course_description;
         if($request->hasFile('course_image')) {
-
             $image       = $request->file('course_image')->store('courses');
             $course->course_image = Storage::url($image);
         }

@@ -45,6 +45,14 @@ class ModuleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'module_name' => 'required|max:255',
+            'module_slug' => 'required|unique:modules|max:50',
+            'module_type' => 'required',
+            'video_url' => 'max:100',
+            'module_content' => 'max:5000',
+            'module_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
         //
         $module = new Module;
         $module->module_name = $request->module_name;
@@ -97,6 +105,14 @@ class ModuleController extends Controller
     public function update(Request $request, Module $module)
     {
         //
+        $request->validate([
+            'module_name' => 'required|max:255',
+            'module_slug' => 'required|max:50',
+            'module_type' => 'required',
+            'video_url' => 'max:100',
+            'module_content' => 'max:5000',
+            'module_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
         $module->update($request->all());
         $module->module_name = $request->module_name;
         $module->module_slug = $request->module_slug;
