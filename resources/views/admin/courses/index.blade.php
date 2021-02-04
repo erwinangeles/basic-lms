@@ -37,7 +37,7 @@
 
                 <tr>
                     <td>{{ $course->id }}</td>
-                    <td>{{$course->course_name}}</td>
+                    <td><a href="{{route('course', ['course' => $course->course_slug])}}" target="_blank">{{$course->course_name}}</a></td>
                     <td>{{$course->course_slug}}</td>
                     <td> <a href="{{ route('admin.courses.edit', $course->id) }}" class="btn btn-xs btn-primary">Edit</a>
                         <a href="{{url('admin/modules?course_id=')}}{{$course->id}}" class="btn btn-xs btn-warning">Edit Modules</a>

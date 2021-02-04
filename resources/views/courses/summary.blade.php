@@ -74,13 +74,13 @@
                         <div class="text-wrap" style="padding: 10px;">
 
                             <ul class="list-unstyled list-centered" style="text-align: center; list-style: inside;">
-                                <h3 class="lesson-summary-title">Summary&nbsp;<span class="fill-me-up"><img src="{{url('/images/bookmark.svg')}}" width="43" height="60" /></span></h3>
+                                <h3 class="lesson-summary-title">Summary&nbsp;<span class="fill-me-up"><img src="{{asset('images/bookmark.svg')}}" width="43" height="60" /></span></h3>
                                 <hr />
-                                <li class="margin-bottom"><b>Getting Started</b> <a href="{{url('/course')}}/{{ $course->course_slug }}/">(Revisit)</a></li>
+                                <li class="margin-bottom"><b>Getting Started</b> <a href="{{route('course', ['course' => $course->course_slug])}}">(Revisit)</a></li>
                             @foreach($modules as $module)
-                                    <li class="margin-bottom"><b>{{ $module->module_name }}</b> <a href="{{url('/course')}}/{{ $course->course_slug }}/{{ $module->module_slug }}/">(Revisit)</a></li>
+                                    <li class="margin-bottom"><b>{{ $module->module_name }}</b> <a href="{{route('module', ['course' => $module->course->course_slug, 'module' => $module->module_slug])}}">(Revisit)</a></li>
                                 @endforeach
-                                <li class="margin-bottom"><b>Summary</b> <a href="{{url('/')}}/{{ $course->course_slug }}/summary">(Revisit)</a></li>
+                                <li class="margin-bottom"><b>Summary</b> <a href="{{route('summary', ['course' => $course->course_slug])}}">(Revisit)</a></li>
                             </ul>
                         </div>
                     </div>
@@ -131,11 +131,18 @@
 
                         @foreach ($modules as $module)
 
-                            <a href="{{url('/course')}}/{{$course->course_slug}}/{{$module->module_slug}}" class="not-active"><div class="lesson-scroller-item">
-                                    <div class="image-container {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}" id="{{ $loop->iteration }}"><img src="{{url('/images/modules')}}/{{$module->module_image}}" alt=""></div>
-                                    <div class="lesson-title">
-                                        <strong><span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span></strong>
-                                    </div></div></a>
+                        <a href="{{route('module', ['course' => $course->course_slug, 'module' => $module->module_slug])}}" class="not-active"><div class="lesson-scroller-item">
+                            <div class="image-container {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}" id="{{ $loop->iteration }}">
+                                
+                                @if($module->module_image)      
+                                <img src="{{$module->module_image}}" alt="">
+                                @else
+                                <img src="https://via.placeholder.com/250x140?text={{$module->module_name}}" alt="">
+                                @endif
+                            </div>
+                    <div class="lesson-title">
+                        <strong><span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span></strong>
+                       </div></div></a>
                             @if($loop->last)
                                 <a href="{{url('/')}}/{{$course->course_slug}}/summary" class="not-active"><div class="lesson-scroller-item"><div class="image-container active" id="{{ $loop->iteration+1}}"><img src="{{url('/images/summary.png')}}" alt=""></div>
                                         <div class="lesson-title">

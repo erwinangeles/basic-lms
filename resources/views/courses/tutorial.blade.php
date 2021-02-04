@@ -138,13 +138,20 @@
 
                         @foreach ($modules as $module)
 
-                            <a href="{{url('/course')}}/{{$course->course_slug}}/{{$module->module_slug}}" class="not-active"><div class="lesson-scroller-item">
-                                    <div class="image-container {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}" id="{{ $loop->iteration }}"><img src="{{url('/images/modules')}}/{{$module->module_image}}" alt=""></div>
-                                    <div class="lesson-title">
-                                        <strong><span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span></strong>
-                                    </div></div></a>
+                        <a href="{{route('module', ['course' => $course->course_slug, 'module' => $module->module_slug])}}" class="not-active"><div class="lesson-scroller-item">
+                            <div class="image-container {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}" id="{{ $loop->iteration }}">
+                                
+                                @if($module->module_image)      
+                                <img src="{{$module->module_image}}" alt="">
+                                @else
+                                <img src="https://via.placeholder.com/250x140?text={{$module->module_name}}" alt="">
+                                @endif
+                            </div>
+                    <div class="lesson-title">
+                        <strong><span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span></strong>
+                       </div></div></a>
                             @if($loop->last)
-                                <a href="{{url('/')}}/{{$course->course_slug}}/summary" class="not-active"><div class="lesson-scroller-item"><div class="image-container" id="{{ $loop->iteration+1}}"><img src="{{url('/images/summary.png')}}" alt=""></div>
+                                <a href="{{url('/')}}/{{$course->course_slug}}/summary" class="not-active"><div class="lesson-scroller-item"><div class="image-container" id="{{ $loop->iteration+1}}"><img src="{{asset('images/summary.png')}}" alt=""></div>
                                         <div class="lesson-title">
                                             <strong><span class="lesson-module-number"></span> <span class="text-uppercase">Summary</span></strong>
                                         </div></div></a>

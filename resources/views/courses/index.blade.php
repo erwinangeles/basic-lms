@@ -46,10 +46,10 @@
 
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="{{url('dashboard')}}" target="_blank" class="navbar-brand d-flex align-items-center">
+            <a href="{{route('homepage')}}" target="_blank" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
-                <a class="btn btn-sm btn-warning float-right" href="{{url('/admin')}}" target="_blank">Admin Panel</a>
-                <a class="btn btn-sm btn-primary" href="{{url('dashboard')}}" target="_blank">Dashboard</a>
+                <a class="btn btn-sm btn-warning float-right" href="{{route('admin')}}" target="_blank">Admin Panel</a>
+                <a class="btn btn-sm btn-primary" href="{{route('homepage')}}" target="_blank">Dashboard</a>
             </a>
         </div>
     </div>
@@ -167,11 +167,18 @@
 
                         @foreach ($modules as $module)
 
-                            <a href="{{url('/course')}}/{{$course->course_slug}}/{{$module->module_slug}}" class="not-active"><div class="lesson-scroller-item">
-                                        <div class="image-container {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}" id="{{ $loop->iteration }}"><img src="{{url('/images/modules')}}/{{$module->module_image}}" alt=""></div>
-                                <div class="lesson-title">
-                                    <strong><span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span></strong>
-                                   </div></div></a>
+                        <a href="{{route('module', ['course' => $course->course_slug, 'module' => $module->module_slug])}}" class="not-active"><div class="lesson-scroller-item">
+                            <div class="image-container {{ (request()->is('*/'. $module->module_slug)) ? 'active' : '' }}" id="{{ $loop->iteration }}">
+                                
+                                @if($module->module_image)      
+                                <img src="{{$module->module_image}}" alt="">
+                                @else
+                                <img src="https://via.placeholder.com/250x140?text={{$module->module_name}}" alt="">
+                                @endif
+                            </div>
+                    <div class="lesson-title">
+                        <strong><span class="lesson-module-number">{{ $loop->iteration+1}}</span> <span class="text-uppercase">{!! $module->module_name !!}</span></strong>
+                       </div></div></a>
                         @endforeach
                         <a href="{{url('/')}}/{{$course->course_slug}}/summary" class="not-active"><div class="lesson-scroller-item"><div class="image-container" id="summary"><img src="{{url('/images/summary.png')}}" alt=""></div>
                             <div class="lesson-title">

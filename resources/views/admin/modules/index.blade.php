@@ -34,7 +34,7 @@
             @forelse($modules as $module)
 
                 <tr>
-                    <td> @if($module->module_type =='video')<span class="label label-success">video</span>@else <span class="label label-danger">text</span>@endif {{$module->module_name}}</td>
+                    <td> @if($module->module_type =='video')<span class="label label-success">video</span>@else <span class="label label-danger">text</span>@endif <a href="{{route('module', ['course' => $module->course->course_slug, 'module' => $module->module_slug])}}" target="_blank">{{$module->module_name}}</a></td>
                     <td> <a href="{{ route('admin.modules.edit', $module->id) }}" class="btn btn-xs btn-primary">Edit</a>
                         <form method="POST" action="{{route('admin.modules.destroy', $module->id)}}">
                             @csrf
