@@ -48,10 +48,10 @@
 
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="{{url('dashboard')}}" target="_blank" class="navbar-brand d-flex align-items-center">
+            <a href="{{route('homepage')}}" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
-                <a class="btn btn-sm btn-warning float-right" href="{{url('/admin')}}" target="_blank">Admin Panel</a>
-                <a class="btn btn-sm btn-primary" href="{{url('dashboard')}}" target="_blank">Dashboard</a>
+                <a class="btn btn-sm btn-warning float-right" href="{{route('admin')}}">Admin Panel</a>
+                <a class="btn btn-sm btn-primary" href="{{route('homepage')}}">Dashboard</a>
             </a>
         </div>
     </div>
