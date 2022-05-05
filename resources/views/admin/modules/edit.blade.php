@@ -79,7 +79,7 @@
                         alert("Please provide a module name to get an image!")
                     }else{
                         $.ajax({
-                        url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=sFURTAcLZSn8VyIeBIDl-zIcfSW04RaBDbaHWofJt_8",
+                        url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=" + "{{env('UNSPLASH_ACCESS_KEY')}}",
                         type: 'GET',
                         success: function(res) {
                             let random = Math.floor(Math.random() * res.results.length);

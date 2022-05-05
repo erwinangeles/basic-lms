@@ -34,13 +34,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <script>
-
-
-
-
-
     $(document).ready(function() {
-
         $('#course_name').on("input", function(e) {
         var str = $("#course_name").val();
         str = str.replace(/[^a-zA-Z0-9\s]/g,"");
@@ -60,7 +54,7 @@
                 alert("Please provide a course name to get an image!")
             }else{
                 $.ajax({
-                url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=sFURTAcLZSn8VyIeBIDl-zIcfSW04RaBDbaHWofJt_8",
+                url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=" + "{{env('UNSPLASH_ACCESS_KEY')}}",
                 type: 'GET',
                 success: function(res) {
                     let random = Math.floor(Math.random() * res.results.length);
