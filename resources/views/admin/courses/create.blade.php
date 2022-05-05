@@ -14,7 +14,12 @@
                 <textarea class="form-control" rows="5" placeholder="Short course description about the course" name="course_description"></textarea>
                 Course Image:
                 <br>
-                <input type="file" id="course_image" name = "course_image">
+                <input name="course_image" style="display: none">
+                <div>
+                    <img class="img-responsive responsive-img" id="thumbnail">
+                </div>
+                <a class="btn btn-info" id="getNewImage">Get Unsplash Image</a>
+                <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-primary">
                 <a href="{{url('admin/courses')}}"><button type="button" class="btn btn-light">Return to Courses</button></a>
@@ -48,6 +53,28 @@
         $("#course_slug").on("click", function (e) {
         $("#course_slug").attr("readonly", false);
         });
+
+        $("#getNewImage").on("click", function(){
+            let query = $("#course_name").val();
+            if(query == ""){
+                alert("Please provide a course name to get an image!")
+            }else{
+                $.ajax({
+                url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=sFURTAcLZSn8VyIeBIDl-zIcfSW04RaBDbaHWofJt_8",
+                type: 'GET',
+                success: function(res) {
+                    let random = Math.floor(Math.random() * res.results.length);
+                    let img = res.results[random].urls.raw + "&fit=crop&h=300&w=525";
+                    $("#thumbnail").attr("src", img);
+                    $("input[name=course_image").val(img);
+
+                    console.log(img);
+                }
+            });
+            }
+        });
+
+
     });
 </script>
 @endsection

@@ -46,10 +46,10 @@
 
     <div class="navbar navbar-dark shadow-sm">
         <div class="container d-flex justify-content-between">
-            <a href="{{route('homepage')}}" target="_blank" class="navbar-brand d-flex align-items-center">
+            <a href="{{route('homepage')}}" class="navbar-brand d-flex align-items-center">
                 <strong>LMSEANG</strong>
                 <a class="btn btn-sm btn-warning float-right" href="{{route('admin')}}" target="_blank">Admin Panel</a>
-                <a class="btn btn-sm btn-primary" href="{{route('homepage')}}" target="_blank">Dashboard</a>
+                <a class="btn btn-sm btn-primary" href="{{route('homepage')}}">Dashboard</a>
             </a>
         </div>
     </div>
@@ -82,9 +82,9 @@
 <br>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-9 col-lg-8">
+        <div class="col-md-6 offset-md-3">
             <div class="card">
-                <div class="card-header">{{$course->course_name}} - Online Course</div>
+                <div class="card-header">{{$course->course_name}}: {{$module->module_name}}</div>
                 @if(!is_null($module->video_url) and $module->module_type =='video')
                     <div class="video-responsive">
                         <style>
@@ -115,14 +115,14 @@
             </div>
             <br>
         </div>
-        <div class="col-md-3 col-lg-4">
+        {{-- <div class="col-md-3 col-lg-4">
             <div class="card">
                 <div class="card-header">Description</div>
                 <div class="card-body" id="sidecontent">
                     {{$course->course_description}}
                 </div>
             </div>
-        </div>
+        </div> --}}
         <hr>
         <div class="col-md-12">
             <hr>
@@ -159,7 +159,7 @@
 
 
                         <a href="{{url('/course')}}/{{$course->course_slug}}" class="not-active"><div class="lesson-scroller-item" id="0">
-                                <div class="image-container"><img src="{{asset('images/getting-started.jpg')}}" alt=""></div>
+                                <div class="image-container"><img src="{{$course->course_image}}" alt=""></div>
                             <div class="lesson-title">
                                 <strong><span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span></strong>
                            </div></div></a>

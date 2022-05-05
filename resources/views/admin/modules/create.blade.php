@@ -38,7 +38,13 @@
                 </script>
                 Module Image:
                 <br>
-                <input type="file" id="module_image" name = "module_image">
+                <input name="module_image" style="display: none">
+                <div>
+                    <img class="img-responsive responsive-img" id="thumbnail">
+                </div>
+                <a class="btn btn-info" id="getNewImage">Get Unsplash Image</a>
+
+                <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-primary">
                 <a href="{{url('admin/modules?course_id=')}}{{ app('request')->input('course_id') }}"><button type="button" class="btn btn-light">Return to Modules</button></a>
@@ -77,6 +83,27 @@
         $("#module_slug").on("click", function (e) {
         $("#module_slug").attr("readonly", false);
         });
+
+        $("#getNewImage").on("click", function(){
+            let query = $("#module_name").val();
+            if(query == ""){
+                alert("Please provide a module name to get an image!")
+            }else{
+                $.ajax({
+                url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=sFURTAcLZSn8VyIeBIDl-zIcfSW04RaBDbaHWofJt_8",
+                type: 'GET',
+                success: function(res) {
+                    let random = Math.floor(Math.random() * res.results.length);
+                    let img = res.results[random].urls.raw + "&fit=crop&h=140&w=240";
+                    $("#thumbnail").attr("src", img);
+                    $("input[name=module_image").val(img);
+
+                    console.log(img);
+                }
+            });
+            }
+        });
+
     });
 </script>
 @endsection

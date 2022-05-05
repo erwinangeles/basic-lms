@@ -18,14 +18,19 @@
             @csrf
             <div class="form-group">
                 Name:
-                <input type="text" name="course_name" value="{{$course->course_name}}" class="form-control"/>
+                <input type="text" id="course_name" name="course_name" value="{{$course->course_name}}" class="form-control"/>
                 Slug:
                 <input type="text" name="course_slug" value="{{$course->course_slug }}" class="form-control"/>
                 Description:
                 <textarea class="form-control" rows="5" name="course_description">{{$course->course_description}}</textarea>
                 <br>
-                <img src="{{$course->course_image}}" height="100"/>
-                <input type="file" id="course_image" name = "course_image">
+                Course Image:
+                <br>
+                <input value="{{$course->course_image}}" name="course_image" style="display: none">
+                <div>
+                    <img src="{{$course->course_image}}" class="img-responsive responsive-img" id="thumbnail">
+                </div>
+                <a class="btn btn-info" id="getNewImage">Get Unsplash Image</a>
                 <br>
                 <br>
                 <input type="submit" value="Save" class="btn btn-primary">
@@ -35,3 +40,30 @@
     </div>
 @endsection
 
+@section('additional_scripts')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#getNewImage").on("click", function(){
+            let query = $("#course_name").val();
+            if(query == ""){
+                alert("Please provide a course name to get an image!")
+            }else{
+                $.ajax({
+                url: "https://api.unsplash.com/search/photos?query=" + query + "&client_id=sFURTAcLZSn8VyIeBIDl-zIcfSW04RaBDbaHWofJt_8",
+                type: 'GET',
+                success: function(res) {
+                    let random = Math.floor(Math.random() * res.results.length);
+                    let img = res.results[random].urls.raw + "&fit=crop&h=300&w=525";
+                    $("#thumbnail").attr("src", img);
+                    $("input[name=course_image").val(img);
+
+                    console.log(img);
+                }
+            });
+            }
+        });
+    });
+</script>
+@endsection

@@ -65,9 +65,9 @@
 <br>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-9">
+        <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{$course->course_name}} - Online Course</div>
+                <div class="card-header">{{$course->course_name}}</div>
 
                 <div class="card-body">
 
@@ -81,7 +81,7 @@
             </div>
             <br>
         </div>
-        <div class="col-md-3">
+        {{-- <div class="col-md-3">
             <div class="card">
                 <div class="card-header">Description</div>
 
@@ -94,7 +94,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <div class="col-md-12">
             <hr>
@@ -130,7 +130,7 @@
 
 
                         <a href="{{url('/course')}}/{{$course->course_slug}}" class="not-active"><div class="lesson-scroller-item" id="0">
-                                <div class="image-container active"><img src="{{url('/images/getting-started.jpg')}}" alt=""></div>
+                                <div class="image-container active"><img src="{{$course->course_image}}" alt=""></div>
                                 <div class="lesson-title">
                                     <strong><span class="lesson-module-number">1</span> <span class="text-uppercase">Getting Started</span></strong>
                                 </div></div></a>

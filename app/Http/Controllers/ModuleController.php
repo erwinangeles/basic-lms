@@ -51,7 +51,7 @@ class ModuleController extends Controller
             'module_type' => 'required',
             'video_url' => 'max:100',
             'module_content' => 'max:5000',
-            'module_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            // 'module_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         //
         $module = new Module;
@@ -61,12 +61,7 @@ class ModuleController extends Controller
         $module->module_type = $request->module_type;
         $module->video_url = $request->video_url;
         $module->module_content = $request->module_content;
-        if($request->hasFile('module_image')) {
-
-            $image       = $request->file('module_image')->store('modules');
-            $module->module_image = Storage::url($image);
-            $module->module_image = $filename;
-        }
+        $module->module_image = $request->module_image;
         $module->save();
         return redirect('admin/modules?course_id='. $module->course_id)->with('message', 'Module successfully created!');
 
@@ -111,7 +106,7 @@ class ModuleController extends Controller
             'module_type' => 'required',
             'video_url' => 'max:100',
             'module_content' => 'max:5000',
-            'module_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            // 'module_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
         $module->update($request->all());
         $module->module_name = $request->module_name;
@@ -119,10 +114,7 @@ class ModuleController extends Controller
         $module->module_content = $request->module_content;
         $module->module_type = $request->module_type;
         $module->video_url = $request->video_url;
-        if($request->hasFile('module_image')) {
-            $image = $request->file('module_image')->store('modules');
-            $module->module_image = Storage::url($image);
-        }
+        $module->module_image = $request->module_image;
         $module->save();
         return redirect('admin/modules?course_id='. $module->course_id)->with('message', 'Module successfully created!');
     }
